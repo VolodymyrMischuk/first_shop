@@ -7,10 +7,26 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application" %>
   </head>
   <% print "#{controller.controller_name} \n\n\n\n\n\n" %>
   <body class="<%= controller.controller_name %>">
-    <%= yield %>
+  <div id="banner">
+    <%= image_tag("logo.png", width: "50px") %>
+    <%= @page_title || "Pragmatic Bookshelf" %>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li><a href="https://www....">Home</a></li>
+        <li><a href="https://www..../faq">Questions</a></li>
+        <li><a href="https://www..../news">News</a></li>
+        <li><a href="https://www..../contact">Contact</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>
